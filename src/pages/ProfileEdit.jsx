@@ -1,5 +1,3 @@
-import '../styles/ProfileEdit.css';
-
 function ProfileEdit() {
   return (
     <div data-testid="page-profile-edit">

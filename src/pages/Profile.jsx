@@ -1,5 +1,3 @@
-import '../styles/Profile.css';
-
 function Profile() {
   return (
     <div data-testid="page-profile">

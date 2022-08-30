@@ -1,5 +1,3 @@
-import '../styles/Favorites.css';
-
 function Favorites() {
   return (
     <div data-testid="page-favorites">

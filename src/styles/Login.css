@@ -1,3 +1,53 @@
 body {
+  align-items: center;
   background-color: #4f61c3;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.div-name {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 975px;
+  justify-content: center;
+  width: 1440px;
+}
+
+.div-input {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.p-login {
+  color: white;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 400;
+  margin: 3px;
+  text-shadow: black 1px 1px;
+}
+
+.input-name {
+  border-radius: 10px;
+  height: 25px;
+  width: 350px;
+}
+
+.image {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  width: 500px;
+}
+
+img {
+  height: 220px;
+  width: 220px;
 }

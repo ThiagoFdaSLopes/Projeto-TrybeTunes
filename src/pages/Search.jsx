@@ -1,5 +1,3 @@
-import '../styles/Search.css';
-
 function Search() {
   return (
     <div data-testid="page-search">

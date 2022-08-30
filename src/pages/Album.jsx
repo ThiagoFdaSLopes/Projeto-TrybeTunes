@@ -1,5 +1,3 @@
-import '../styles/Album.css';
-
 function Album() {
   return (
     <div data-testid="page-album">

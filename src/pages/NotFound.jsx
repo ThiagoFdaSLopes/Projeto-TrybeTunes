@@ -1,5 +1,3 @@
-import '../styles/NotFound.css';
-
 function NotFound() {
   return (
     <div data-testid="page-not-found">
