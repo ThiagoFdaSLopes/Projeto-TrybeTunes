@@ -1,9 +1,5 @@
 body {
-  align-items: center;
   background-color: #4f61c3;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
   margin: 0;
   padding: 0;
 }
@@ -50,4 +46,13 @@ body {
 img {
   height: 220px;
   width: 220px;
+}
+
+.cabecalho {
+  background: #023031;
+  box-shadow: 0 4px 1px rgba(0, 0, 0, 0.25);
+  height: 96px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
