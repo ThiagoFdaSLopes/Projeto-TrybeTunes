@@ -1,7 +1,9 @@
+import Header from '../components/Header';
+
 function Favorites() {
   return (
     <div data-testid="page-favorites">
-      <h1>Favoritos</h1>
+      <Header />
     </div>
   );
 }

@@ -1,7 +1,9 @@
+import Header from '../components/Header';
+
 function Search() {
   return (
     <div data-testid="page-search">
-      <h1>Search</h1>
+      <Header />
     </div>
   );
 }
