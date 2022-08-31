@@ -98,7 +98,7 @@ class Search extends React.Component {
             <div>
               <ul>
                 { lista.map((e) => (
-                  <li key={ e.id }>
+                  <li key={ e.collectionId }>
                     <img src={ e.artworkUrl100 } alt="" />
                     <p>{e.artistName}</p>
                     <p>{e.collectionName}</p>
