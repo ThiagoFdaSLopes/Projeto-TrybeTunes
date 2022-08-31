@@ -14,6 +14,7 @@ class Album extends Component {
   };
 
   async componentDidMount() {
+    await this.favoritar();
     const { match: { params: { id } } } = this.props;
 
     const listaM = await getMusics(id);
