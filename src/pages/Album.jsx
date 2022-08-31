@@ -4,7 +4,7 @@ import getMusics from '../services/musicsAPI';
 import Header from '../components/Header';
 import MusicCard from '../components/MusicCard';
 import Carregando from './Carregando';
-import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 
 class Album extends Component {
   state = {
@@ -25,11 +25,22 @@ class Album extends Component {
   }
 
   criandoFavoritas = async (e) => {
-    this.setState({ carregando: true }, async () => {
-      await addSong(e);
-      await this.favoritar();
-      this.setState({ carregando: false });
-    });
+    // Preciso atualizar o array com a musica removida de favoritas
+    const { favoritada } = this.state;
+    const newMusicas = favoritada.some((e2) => e2.trackName === e.trackName);
+    if (newMusicas) {
+      this.setState({ carregando: true }, async () => {
+        await removeSong(e);
+        await this.favoritar();
+        this.setState({ carregando: false });
+      });
+    } else {
+      this.setState({ carregando: true }, async () => {
+        await addSong(e);
+        await this.favoritar();
+        this.setState({ carregando: false });
+      });
+    }
   };
 
   favoritar = async () => {
