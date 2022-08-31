@@ -32,7 +32,7 @@ class Profile extends Component {
         <Header />
         {carregando ? <Carregando />
           : (
-            <div>
+            <div data-testid="page-profile">
               <div>
                 <img data-testid="profile-image" src={ image } alt={ name } />
                 <h3>Nome</h3>

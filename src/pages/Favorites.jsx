@@ -33,7 +33,7 @@ class Favorites extends Component {
   render() {
     const { musicas, carregando } = this.state;
     return (
-      <div>
+      <div data-testid="page-favorites">
         <Header />
         {carregando ? <Carregando /> : musicas.map((e, index) => (
           <div key={ e.trackId }>
