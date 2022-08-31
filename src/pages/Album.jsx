@@ -3,10 +3,14 @@ import PropTypes from 'prop-types';
 import getMusics from '../services/musicsAPI';
 import Header from '../components/Header';
 import MusicCard from '../components/MusicCard';
+import Carregando from './Carregando';
+import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 class Album extends Component {
   state = {
     musicas: [],
+    favoritada: [],
+    carregando: false,
   };
 
   async componentDidMount() {
@@ -19,8 +23,23 @@ class Album extends Component {
     });
   }
 
+  criandoFavoritas = async (e) => {
+    this.setState({ carregando: true }, async () => {
+      await addSong(e);
+      await this.favoritar();
+      this.setState({ carregando: false });
+    });
+  };
+
+  favoritar = async () => {
+    const checked = await getFavoriteSongs();
+    this.setState(({
+      favoritada: checked,
+    }));
+  };
+
   render() {
-    const { musicas } = this.state;
+    const { musicas, favoritada, carregando } = this.state;
     return (
       <div data-testid="page-album">
         <Header />
@@ -33,12 +52,31 @@ class Album extends Component {
             </div>)
           : <h1>Musicas não encontrada</h1>}
         <div>
-          { musicas.map((e, index) => (index > 0 && (
-            <MusicCard
-              key={ e.trackNumber }
-              trackName={ e.trackName }
-              previewUrl={ e.previewUrl }
-            />)))}
+          { carregando ? <Carregando /> : musicas.map((e, index) => (index > 0 && (
+            <div key={ e.trackId }>
+              <MusicCard
+                key={ e.trackNumber }
+                trackName={ e.trackName }
+                previewUrl={ e.previewUrl }
+              />
+              <label
+                htmlFor={ index }
+              >
+                Favorita
+                <input
+                  type="checkbox"
+                  id={ index }
+                  onClick={ async () => {
+                    await this.criandoFavoritas(e);
+                    await this.favoritar();
+                  } }
+                  data-testid={ `checkbox-music-${e.trackId}` }
+                  defaultChecked={ favoritada.length > 0 && (
+                    favoritada.some((e2) => e2.trackName === e.trackName)
+                  ) }
+                />
+              </label>
+            </div>)))}
         </div>
       </div>
     );

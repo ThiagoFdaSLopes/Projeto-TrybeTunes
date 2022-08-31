@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 export default class MusicCard extends Component {
   render() {
-    const { trackName, previewUrl } = this.props;
+    const { trackName,
+      previewUrl } = this.props;
     return (
       <div>
         <p>{trackName}</p>
