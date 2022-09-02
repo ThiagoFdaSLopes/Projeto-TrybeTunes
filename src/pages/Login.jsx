@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
 import Carregando from './Carregando';
 import '../styles/App.css';
+import 'animate.css';
 
 class Login extends React.Component {
   constructor() {
@@ -56,12 +57,13 @@ class Login extends React.Component {
           ? <Carregando />
           : (
             <div className="image">
-              <img src="sound.png" alt="login imagem" />
+              <h1 className="animate__animated animate__fadeInLeft">Trybe</h1>
+              <h2 className="animate__animated animate__fadeInRight">Tunes</h2>
             </div>)}
         <form>
           <label htmlFor="name">
             <div className="div-input">
-              <p className="p-login">Login:</p>
+              <p className="p-login animate__animated animate__fadeIn">Login:</p>
               <input
                 className="input-name"
                 data-testid="login-name-input"
@@ -74,6 +76,7 @@ class Login extends React.Component {
           </label>
         </form>
         <button
+          className="button-85"
           type="button"
           data-testid="login-submit-button"
           disabled={ buttonDisabled }

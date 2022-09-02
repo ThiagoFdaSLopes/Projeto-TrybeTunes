@@ -1,5 +1,5 @@
 body {
-  background-color: #4f61c3;
+  background-color: #33539e;
   margin: 0;
   padding: 0;
 }
@@ -8,9 +8,9 @@ body {
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 975px;
+  height: 900px;
   justify-content: center;
-  width: 1440px;
+  width: 100%;
 }
 
 .div-input {
@@ -22,31 +22,72 @@ body {
 
 .p-login {
   color: white;
-  font-size: 26px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 400;
   margin: 3px;
   text-shadow: black 1px 1px;
 }
 
+/* CSS */
+.button-85 {
+  background: #366ff5;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.5);
+  color: white;
+  cursor: pointer;
+  height: 40px;
+  margin: 10px;
+  width: 100px;
+}
+
 .input-name {
-  border-radius: 10px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgb(104, 104, 104);
+  color: white;
+  font-size: 20px;
   height: 25px;
+  margin: 10px;
+  outline: none;
+  padding: 10px;
+  text-align: center;
   width: 350px;
 }
 
 .image {
   align-items: center;
   display: flex;
+  height: 200px;
   justify-content: center;
-  margin: 10px;
-  width: 500px;
+  width: 50%;
 }
 
-img {
-  height: 220px;
-  width: 220px;
+/* .animate__animated.animate__fadeInLeft {
+  --animate-duration: 1s;
 }
+
+.animate__animated.animate__fadeInRight {
+  --animate-duration: 2s;
+}
+
+.animate__animated.animate__fadeIn {
+  --animate-duration: 3s;
+}
+
+.image h1 {
+  font-family: Gotham Black, Arial, Helvetica, sans-serif;
+  font-size: 80px;
+  font-weight: 350;
+}
+
+.image h2 {
+  font-family: Gotham Black, Arial, Helvetica, sans-serif;
+  font-size: 35px;
+  font-weight: 350;
+  margin-top: 0;
+} */
 
 .cabecalho {
   background: #023031;

@@ -8,6 +8,7 @@ export default class ProfileEdit extends Component {
   state = {
     carregando: false,
     goTO: false,
+    buttonDisabled: true,
   };
 
   async componentDidMount() {
@@ -25,8 +26,17 @@ export default class ProfileEdit extends Component {
       description: user.description,
       email: user.email,
       carregando: false,
-      buttonDisabled: true,
     });
+    this.checkLoadInputs();
+  };
+
+  checkLoadInputs = () => {
+    const { name, image, description, email } = this.state;
+    if (email && image && name && description) {
+      this.setState({
+        buttonDisabled: false,
+      });
+    }
   };
 
   handleChange = ({ target }) => {
@@ -56,8 +66,8 @@ export default class ProfileEdit extends Component {
       carregando: true,
     });
     await updateUser(obj);
+
     this.setState({
-      carregando: false,
       goTO: true,
     });
   };
@@ -117,17 +127,15 @@ export default class ProfileEdit extends Component {
                   onChange={ this.handleChange }
                 />
               </label>
+              <button
+                data-testid="edit-button-save"
+                type="button"
+                disabled={ buttonDisabled }
+                onClick={ () => this.atualizarUser({ name, image, description, email }) }
+              >
+                Salvar
+              </button>
             </form>)}
-        <div>
-          <button
-            data-testid="edit-button-save"
-            type="button"
-            disabled={ buttonDisabled }
-            onClick={ () => this.atualizarUser({ name, image, description, email }) }
-          >
-            Salvar
-          </button>
-        </div>
         { goTO && <Redirect to="/profile" />}
       </div>
     );
