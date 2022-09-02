@@ -6,9 +6,7 @@ import { getUser, updateUser } from '../services/userAPI';
 
 export default class ProfileEdit extends Component {
   state = {
-    carregando: false,
     goTO: false,
-    buttonDisabled: true,
   };
 
   async componentDidMount() {
@@ -26,8 +24,8 @@ export default class ProfileEdit extends Component {
       description: user.description,
       email: user.email,
       carregando: false,
-    });
-    this.checkLoadInputs();
+      buttonDisabled: true,
+    }, this.checkLoadInputs);
   };
 
   checkLoadInputs = () => {
