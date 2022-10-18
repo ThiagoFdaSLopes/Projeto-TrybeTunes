@@ -53,44 +53,72 @@ class Album extends Component {
   render() {
     const { musicas, favoritada, carregando } = this.state;
     return (
-      <div data-testid="page-album">
+      <>
         <Header />
-        { musicas.length > 0
-          ? (
-            <div>
-              <img src={ musicas[0].artworkUrl60 } alt={ musicas[0].collectionName } />
-              <p data-testid="artist-name">{musicas[0].artistName}</p>
-              <p data-testid="album-name">{musicas[0].collectionName}</p>
-            </div>)
-          : <h1>Musicas não encontrada</h1>}
-        <div>
-          { carregando ? <Carregando /> : musicas.map((e, index) => (index > 0 && (
-            <div key={ e.trackId }>
-              <MusicCard
-                key={ e.trackNumber }
-                trackName={ e.trackName }
-                previewUrl={ e.previewUrl }
+        <div data-testid="container d-flex">
+          { musicas.length > 0
+        && (
+          <div className="album d-flex justify-content-center align-items-center">
+            <div className="card mb-5 mt-5">
+              <img
+                className="card-img-top"
+                src={ musicas[0].artworkUrl100 }
+                alt={ musicas[0].collectionName }
               />
-              <label
-                htmlFor={ index }
-              >
-                Favorita
-                <input
-                  type="checkbox"
-                  id={ index }
-                  onClick={ async () => {
-                    await this.criandoFavoritas(e);
-                    await this.favoritar();
-                  } }
-                  data-testid={ `checkbox-music-${e.trackId}` }
-                  defaultChecked={ favoritada.length > 0 && (
-                    favoritada.some((e2) => e2.trackName === e.trackName)
-                  ) }
-                />
-              </label>
-            </div>)))}
+              <div className="card-body">
+                <p
+                  className="card-title"
+                  data-testid="artist-name"
+                >
+                  {musicas[0].artistName}
+
+                </p>
+                <p
+                  className="card-text"
+                  data-testid="album-name"
+                >
+                  {musicas[0].collectionName}
+
+                </p>
+              </div>
+            </div>
+          </div>)}
+          <div className="d-flex align-content-start flex-wrap justify-content-center">
+            { carregando ? <Carregando /> : musicas.map((e, index) => (index > 0 && (
+              <div className="card me-3 mb-3 mt-3" key={ e.trackId }>
+                <div className="view">
+                  <img className="card-img-top" src={ e.artworkUrl100 } alt="Artista" />
+                  <div className="mask gradient-card" />
+                </div>
+                <div className="card-body text-center">
+                  <h5 className="h5 font-weight-bold">{e.trackName}</h5>
+                  <MusicCard
+                    image={ e.artworkUrl100 }
+                    key={ e.trackNumber }
+                    previewUrl={ e.previewUrl }
+                  />
+                  <label
+                    htmlFor={ index }
+                  >
+                    Favorita
+                    <input
+                      type="checkbox"
+                      id={ index }
+                      onClick={ async () => {
+                        await this.criandoFavoritas(e);
+                        await this.favoritar();
+                      } }
+                      data-testid={ `checkbox-music-${e.trackId}` }
+                      defaultChecked={ favoritada.length > 0 && (
+                        favoritada.some((e2) => e2.trackName === e.trackName)
+                      ) }
+                    />
+                  </label>
+                </div>
+              </div>)))}
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 }

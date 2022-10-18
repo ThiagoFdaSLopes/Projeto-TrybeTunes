@@ -58,61 +58,92 @@ class Search extends React.Component {
       inputSearch,
       buttonDisabled, lista, carregando, exibir, nameRecuperado } = this.state;
     return (
-      <div className="teste " data-testid="page-search">
-        <Header />
-        { carregando
+      <>
+        {carregando
           ? <Carregando />
           : (
-            <>
-              <form>
-                <input
-                  type="text"
-                  name="inputSearch"
-                  data-testid="search-artist-input"
-                  value={ inputSearch }
-                  onChange={ this.handleOnChange }
-                />
-              </form>
-              <button
-                type="button"
-                data-testid="search-artist-button"
-                disabled={ buttonDisabled }
-                onClick={ this.handleOnClick }
+            <Header />)}
+        <div
+          className="teste container-fluid"
+          data-testid="page-search"
+        >
+          { carregando
+            ? <Carregando />
+            : (
+              <div
+                className="teste container-fluid d-flex justify-content-center"
               >
-                Pesquisar
-
-              </button>
-
-            </>)}
-        { exibir
+                <form>
+                  <div className="input-group input-group-lg">
+                    <input
+                      type="text"
+                      name="inputSearch"
+                      className="form-control me-2"
+                      aria-label="Sizing example input"
+                      aria-describedby="inputGroup-sizing-lg"
+                      data-testid="search-artist-input"
+                      value={ inputSearch }
+                      onChange={ this.handleOnChange }
+                    />
+                  </div>
+                </form>
+                <button
+                  type="button"
+                  className="btn btn-outline-primary"
+                  data-testid="search-artist-button"
+                  disabled={ buttonDisabled }
+                  onClick={ this.handleOnClick }
+                >
+                  Pesquisar
+                </button>
+              </div>)}
+          { exibir
         && (
-          <h1>
-            Resultado de álbuns de:
-            {' '}
-            {`${nameRecuperado}`}
-          </h1>)}
+          <div className="teste container-fluid d-flex justify-content-center">
+            <h1>
+              Resultado de álbuns de:
+              {' '}
+              {`${nameRecuperado}`}
+            </h1>
+          </div>)}
+          { lista.length === 0
+            && (
+              <div className="container-fluid d-flex justify-content-center">
+                <h1>Nenhum álbum foi encontrado</h1>
+              </div>)}
+        </div>
+        <div
+          className="main
+          album py-5 d-flex align-content-start flex-wrap justify-content-center"
+        >
+          <div className="container">
+            <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+              { lista.map((e) => (
+                <div className="col" key={ e.collectionId }>
+                  <div className="card shadow-sm">
+                    <img
+                      src={ e.artworkUrl100 }
+                      alt=""
+                    />
+                    <div className="card-body">
+                      <div className="card-text">
+                        <p>{e.artistName}</p>
+                        <p>{e.collectionName}</p>
+                      </div>
+                      <Link
+                        to={ `/album/${e.collectionId}` }
+                        data-testid={ `link-to-album-${e.collectionId}` }
+                      >
+                        Abrir Album
 
-        { lista.length === 0
-          ? <h1>Nenhum álbum foi encontrado</h1>
-          : (
-            <div>
-              <ul>
-                { lista.map((e) => (
-                  <li key={ e.collectionId }>
-                    <img src={ e.artworkUrl100 } alt="" />
-                    <p>{e.artistName}</p>
-                    <p>{e.collectionName}</p>
-                    <Link
-                      to={ `/album/${e.collectionId}` }
-                      data-testid={ `link-to-album-${e.collectionId}` }
-                    >
-                      Abrir Album
-
-                    </Link>
-                  </li>)) }
-              </ul>
-            </div>)}
-      </div>
+                      </Link>
+                    </div>
+                  </div>
+                </div>)) }
+            </div>
+          </div>
+        </div>
+      </>
     );
   }
 }

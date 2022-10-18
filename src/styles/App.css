@@ -1,7 +1,11 @@
 body {
-  background-color: #33539e;
+  background-color: #adadad;
   margin: 0;
   padding: 0;
+}
+
+h1 {
+  margin: 0;
 }
 
 .div-name {
@@ -22,7 +26,8 @@ body {
 
 .p-login {
   color: white;
-  font-size: 20px;
+  font-family: Gotham Black;
+  font-size: 22px;
   font-style: normal;
   font-weight: 400;
   margin: 3px;
@@ -31,7 +36,7 @@ body {
 
 /* CSS */
 .button-85 {
-  background: #366ff5;
+  background: #1050e6;
   border: none;
   border-radius: 5px;
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.5);
@@ -46,8 +51,8 @@ body {
   background: transparent;
   border: none;
   border-bottom: 1px solid rgb(104, 104, 104);
-  color: white;
-  font-size: 20px;
+  color: White;
+  font-size: 15px;
   height: 25px;
   margin: 10px;
   outline: none;
@@ -64,7 +69,34 @@ body {
   width: 50%;
 }
 
-/* .animate__animated.animate__fadeInLeft {
+.titulo-header {
+  align-items: center;
+  display: flex;
+  height: 80px;
+  justify-content: center;
+  width: 10%;
+}
+
+.titulo-header > h1 {
+  color: white;
+  font-family: Gotham Black, Arial, Helvetica, sans-serif;
+  font-size: 60px;
+  font-weight: 350;
+}
+
+.titulo-header > h2 {
+  color: white;
+  font-family: Gotham Black, Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  font-weight: 350;
+}
+
+.links-dire {
+  color: white;
+  text-decoration: none;
+}
+
+.animate__animated.animate__fadeInLeft {
   --animate-duration: 1s;
 }
 
@@ -77,23 +109,117 @@ body {
 }
 
 .image h1 {
+  color: #1050e6;
   font-family: Gotham Black, Arial, Helvetica, sans-serif;
   font-size: 80px;
   font-weight: 350;
 }
 
 .image h2 {
+  color: #fff;
   font-family: Gotham Black, Arial, Helvetica, sans-serif;
   font-size: 35px;
   font-weight: 350;
   margin-top: 0;
-} */
+}
 
 .cabecalho {
-  background: #023031;
-  box-shadow: 0 4px 1px rgba(0, 0, 0, 0.25);
+  align-items: center;
+  background: #1050e6;
+  display: flex;
   height: 96px;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.user {
+  align-items: center;
+  background-color: white;
+  border-radius: 20px;
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  width: 120px;
+}
+
+.user > img {
+  background-color: black;
+  border-radius: 50%;
+  height: 32px;
+  width: 32px;
+}
+
+.user h1 {
+  color: black;
+  font-size: 15px;
+  padding: 8px;
+}
+
+.links {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: 60px;
+  justify-content: space-around;
+  width: 300px;
+}
+
+.teste {
+  margin: 20px;
+}
+
+.main {
+  background-color: #adadad;
+}
+
+.album {
+  background-color: #adadad;
+  width: 100%;
+}
+
+.playlist {
+  align-items: center;
+  background-color: #adadad;
+  display: flex;
+  height: 120px;
+  justify-content: center;
+  width: 100%;
+}
+
+.card {
+  width: 18rem;
+}
+
+.card-body {
+  height: 190px;
+  width: 280px;
+}
+
+.col {
+  margin: 5px;
+  height: 480px;
+  width: 290px;
+}
+
+.text {
   margin: 0;
   padding: 0;
-  width: 100%;
+  text-align: center;
+  width: 80px;
+}
+
+.img-perfil {
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+}
+
+.div-image {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.heigth-card {
+  height: 450px;
 }

@@ -32,18 +32,37 @@ class Profile extends Component {
         <Header />
         {carregando ? <Carregando />
           : (
-            <div data-testid="page-profile">
-              <div>
-                <img data-testid="profile-image" src={ image } alt={ name } />
-                <h3>Nome</h3>
-                <h5>{name}</h5>
-                <h3>E-mail</h3>
-                <h5>{email}</h5>
-                <h3>Descrição</h3>
-                <h5>{description}</h5>
-              </div>
-              <div>
-                <Link to="/profile/edit">Editar perfil</Link>
+            <div
+              className="d-flex justify-content-center flex-direction-column"
+              data-testid="page-profile"
+            >
+              <div
+                className="card heigth-card mt-2"
+              >
+                <div className="div-image">
+                  <img
+                    className="img-perfil"
+                    data-testid="profile-image"
+                    src={ image }
+                    alt={ name }
+                  />
+                  <div className="mask gradient-card" />
+                </div>
+                <div className="card-body text-center">
+                  <p>Nome</p>
+                  <h5 className="my-3">{name}</h5>
+                  <p>E-mail</p>
+                  <h5 className="text-muted mb-1">{email}</h5>
+                  <p>Descrição</p>
+                  <h5 className="text-muted mb-1">{description}</h5>
+                  <Link
+                    className="btn btn-outline-primary ms-1 mt-2"
+                    to="/profile/edit"
+                  >
+                    Editar perfil
+
+                  </Link>
+                </div>
               </div>
             </div>)}
       </>

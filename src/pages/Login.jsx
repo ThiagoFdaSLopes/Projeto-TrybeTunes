@@ -56,36 +56,39 @@ class Login extends React.Component {
         { loading
           ? <Carregando />
           : (
-            <div className="image">
-              <h1 className="animate__animated animate__fadeInLeft">Trybe</h1>
-              <h2 className="animate__animated animate__fadeInRight">Tunes</h2>
-            </div>)}
-        <form>
-          <label htmlFor="name">
-            <div className="div-input">
-              <p className="p-login animate__animated animate__fadeIn">Login:</p>
-              <input
-                className="input-name"
-                data-testid="login-name-input"
-                type="text"
-                name="name"
-                value={ name }
-                onChange={ this.handleInputName }
-              />
-            </div>
-          </label>
-        </form>
-        <button
-          className="button-85"
-          type="button"
-          data-testid="login-submit-button"
-          disabled={ buttonDisabled }
-          onClick={ this.handleOnClick }
-        >
-          Entrar
+            <div className="div-name">
+              <div className="image">
+                <h1 className="animate__animated animate__fadeInLeft">Trybe</h1>
+                <h2 className="animate__animated animate__fadeInRight">Tunes</h2>
+              </div>
+              <form>
+                <label htmlFor="name">
+                  <div className="div-input">
+                    <p className="p-login animate__animated animate__fadeIn">Login:</p>
+                    <input
+                      className="input-name"
+                      data-testid="login-name-input"
+                      placeholder="Digite seu login"
+                      type="text"
+                      name="name"
+                      value={ name }
+                      onChange={ this.handleInputName }
+                    />
+                  </div>
+                </label>
+              </form>
+              <button
+                className="button-85"
+                type="button"
+                data-testid="login-submit-button"
+                disabled={ buttonDisabled }
+                onClick={ this.handleOnClick }
+              >
+                Entrar
 
-        </button>
-        { redirect && <Redirect to="/search" />}
+              </button>
+              { redirect && <Redirect to="/search" />}
+            </div>)}
       </div>
     );
   }

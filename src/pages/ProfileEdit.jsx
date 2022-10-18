@@ -78,62 +78,87 @@ export default class ProfileEdit extends Component {
     const { name, image, email,
       description, carregando, buttonDisabled, goTO } = this.state;
     return (
-      <div data-testid="page-profile-edit">
+      <div
+        data-testid="page-profile-edit"
+      >
         <Header />
         {carregando
           ? <Carregando />
           : (
-            <form>
-              <label htmlFor="name">
-                Nome:
-                <input
-                  type="text"
-                  name="name"
-                  data-testid="edit-input-name"
-                  value={ name }
-                  onChange={ this.handleChange }
-                />
-              </label>
-              <label htmlFor="email">
-                E-mail:
-                <input
-                  type="text"
-                  name="email"
-                  data-testid="edit-input-email"
-                  value={ email }
-                  onChange={ this.handleChange }
-                />
-              </label>
-              <label htmlFor="description">
-                Descrição:
-                <textarea
-                  name="description"
-                  cols="30"
-                  rows="10"
-                  data-testid="edit-input-description"
-                  value={ description }
-                  onChange={ this.handleChange }
-                />
-              </label>
-              <label htmlFor="image">
-                Imagem:
-                <input
-                  type="text"
-                  name="image"
-                  value={ image }
-                  data-testid="edit-input-image"
-                  onChange={ this.handleChange }
-                />
-              </label>
-              <button
-                data-testid="edit-button-save"
-                type="button"
-                disabled={ buttonDisabled }
-                onClick={ () => this.atualizarUser({ name, image, description, email }) }
-              >
-                Salvar
-              </button>
-            </form>)}
+            <div className="d-flex justify-content-center">
+              <div className="col-md-4 mt-5 bg-light rounded">
+                <form id="form-box" className="p-2">
+                  <div className="form-group input-group mt-2">
+                    <div className="input-group-prepend" />
+                    <span className="input-group-text">
+                      <i className="bi bi-person-check-fill" />
+                    </span>
+                    <input
+                      type="text"
+                      name="name"
+                      className="form-control"
+                      data-testid="edit-input-name"
+                      value={ name }
+                      onChange={ this.handleChange }
+                    />
+                  </div>
+                  <div className="form-group input-group mt-2">
+                    <div className="input-group-prepend" />
+                    <span className="input-group-text">
+                      <i className="bi bi-envelope" />
+                    </span>
+                    <input
+                      type="text"
+                      name="email"
+                      className="form-control"
+                      data-testid="edit-input-email"
+                      value={ email }
+                      onChange={ this.handleChange }
+                    />
+                  </div>
+                  <div className="form-group input-group mt-2">
+                    <div className="input-group-prepend" />
+                    <span className="input-group-text">
+                      <i className="bi bi-type" />
+                    </span>
+                    <textarea
+                      name="description"
+                      cols="30"
+                      rows="4"
+                      className="form-control"
+                      data-testid="edit-input-description"
+                      value={ description }
+                      onChange={ this.handleChange }
+                    />
+                  </div>
+                  <div className="form-group input-group mt-2">
+                    <div className="input-group-prepend" />
+                    <span className="input-group-text">
+                      <i className="bi bi-person-bounding-box" />
+                    </span>
+                    <input
+                      type="text"
+                      name="image"
+                      value={ image }
+                      className="form-control"
+                      data-testid="edit-input-image"
+                      onChange={ this.handleChange }
+                    />
+                  </div>
+                  <button
+                    data-testid="edit-button-save"
+                    type="button"
+                    className="btn btn-primary btn-block mt-2"
+                    disabled={ buttonDisabled }
+                    onClick={
+                      () => this.atualizarUser({ name, image, description, email })
+                    }
+                  >
+                    Salvar
+                  </button>
+                </form>
+              </div>
+            </div>)}
         { goTO && <Redirect to="/profile" />}
       </div>
     );
